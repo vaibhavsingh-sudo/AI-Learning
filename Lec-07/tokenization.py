@@ -40,3 +40,12 @@ print(len(all_words))
 print('\nAssigning IDs,Vocabulary')
 vocab={token:integer for integer,token in enumerate(all_words)}
 print(vocab)
+
+
+print("\n","-"*30,"Testing SimpleTokenizer","-"*30)
+from SimpleTokenizer import SimpleTokenizerV1
+tokenizer = SimpleTokenizerV1(vocab)
+text = "Well!--even through the prism of Hermia's tears I felt able to face the fact with equanimity. Poor Jack Gisburn!"
+ids = tokenizer.encode(text)
+print(ids)
+print(tokenizer.decode(ids))
