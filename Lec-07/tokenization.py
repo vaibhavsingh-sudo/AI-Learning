@@ -1,0 +1,42 @@
+with open('Lec-07\\the-verdict.txt','r',encoding='utf-8') as f:
+    raw_text=f.read()
+
+print("Total number of character:",len(raw_text))
+print(raw_text[:99].split())
+
+import re
+exp_text="Hello, World. This is a test.--?!"
+print(re.split(r'(\s)',exp_text))
+
+
+#split with commas, and periods[,.]
+print(re.split(r'([,.]|\s)',exp_text))
+
+#to remove white spaces
+result=re.split(r'([,.]|\s)',exp_text)
+result=[item for item in result if item.strip()]
+print(result)
+
+#split with commas, and periods[,.!?"();:\_']--
+result=re.split(r'([,.!?"();:_\']|--|\s)',exp_text)
+result=[item for item in result if item.strip()]
+print(result)
+
+#tokenizing the-verdict.txt
+print()
+print("-"*30,"Preprocessing the-verdict.txt","-"*30)
+preprocessed=re.split(r'([,.!?"();:_\']|--|\s)',raw_text)
+preprocessed=[item for item in preprocessed if item.strip()]
+print(preprocessed[:30])
+print(len(preprocessed))
+
+
+#sorting in alphabetical order
+print('\nSorting all in alphabetical order')
+all_words=sorted(set(preprocessed))
+print(len(all_words))
+
+#Assigning IDs,Vocabulary 
+print('\nAssigning IDs,Vocabulary')
+vocab={token:integer for integer,token in enumerate(all_words)}
+print(vocab)
