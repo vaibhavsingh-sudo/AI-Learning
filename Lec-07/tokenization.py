@@ -49,3 +49,21 @@ text = "Well!--even through the prism of Hermia's tears I felt able to face the 
 ids = tokenizer.encode(text)
 print(ids)
 print(tokenizer.decode(ids))
+
+#Adding 2 more tokens to the vocabulary
+print("\n","-"*30,"Adding 2 more tokens to the vocabulary","-"*30)
+all_tokens=sorted(list(set(preprocessed)))
+all_tokens.extend(['<unk>','<endoftext>'])
+vocab={token:integer for integer, token in enumerate(all_tokens)}
+print(len(vocab.items()))
+
+#Testing SimpleTokenizerV2
+print("\n","-"*30,"Testing SimpleTokenizerV2","-"*30)
+from SimpleTokenizer import SimpleTokenizerV2
+tokenizer = SimpleTokenizerV2(vocab)
+text="Hello, World. This is a test.--?! This sentence contains some unknown tokens like @ and #."
+text2="Well!--even through the prism of Hermia's tears I felt able to face the fact with equanimity. Poor Jack Gisburn!"
+text = " <endoftext> ".join((text,text2))
+ids=tokenizer.encode(text)
+print(ids)
+print(tokenizer.decode(ids))
