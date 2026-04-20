@@ -87,7 +87,7 @@ python Lec-07/tokenization.py
 
 ## 📖 Reference
 
-Loosely following the concepts from **"Build a Large Language Model (From Scratch)"** by Sebastian Raschka, with my own experiments and notes layered on top.
+Loosely following the concepts from **"Build a Large Language Model (From Scratch)"** by Vizuara, with my own experiments and notes layered on top.
 
 ---
 
