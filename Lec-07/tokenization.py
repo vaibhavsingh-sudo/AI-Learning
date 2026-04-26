@@ -67,3 +67,4 @@ text = " <endoftext> ".join((text,text2))
 ids=tokenizer.encode(text)
 print(ids)
 print(tokenizer.decode(ids))
+
