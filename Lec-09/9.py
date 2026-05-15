@@ -1,8 +1,8 @@
 import tiktoken
-encoding = tiktoken.get_encoding("gpt2")
+tokenizer = tiktoken.get_encoding("gpt2")
 with open("./Lec-07/the-verdict.txt", "r") as f:
     rawtext = f.read()
-    tokens = encoding.encode(rawtext)
+    tokens = tokenizer.encode(rawtext)
     # print(len(tokens))
 
     context_size = 4
@@ -21,3 +21,10 @@ with open("./Lec-07/the-verdict.txt", "r") as f:
         x=enc_sample[:i] # context
         y=enc_sample[i] # desired
         print(x,"----->",y)
+
+
+    # context and desired sentence
+    for i in range(1,context_size+1):
+        context = enc_sample[:i] # context
+        desired = enc_sample[i] # desired
+        print(tokenizer.decode(context),"----->",tokenizer.decode([desired]))
